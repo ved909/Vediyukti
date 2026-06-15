@@ -129,7 +129,7 @@ async function loadInstagramFeed() {
 
     if (!data.success || !data.posts.length) {
       if (isHomePage) {
-        container.innerHTML = '<p style="color:#6E6B8A;text-align:center;grid-column:1/-1;padding:2rem">Follow us <a href="https://instagram.com/vediyukti" target="_blank" style="color:#9D44C0">@vediyukti</a> on Instagram!</p>';
+        container.innerHTML = '<p style="color:#6E6B8A;text-align:center;grid-column:1/-1;padding:2rem">Follow us <a href="https://www.instagram.com/vediyukti.works/" target="_blank" rel="noopener noreferrer" style="color:#9D44C0">@vediyukti.works</a> on Instagram!</p>';
       }
       return;
     }
