@@ -1,25 +1,25 @@
-// ═══════════════════════════════════════════════════════════
-//  Vediyukti — Frontend JavaScript
-//  Handles: Contact Form → WhatsApp, Instagram Feed, Toast,
-//           Scroll Reveal, Floating WhatsApp Button
-// ═══════════════════════════════════════════════════════════
-
 const WHATSAPP_NUMBER = '919839320691';
 
 const API_BASE = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
   ? 'http://localhost:5000'
   : 'https://vediyukti-backend.onrender.com';
 
-// ════════════════════════════════════════════════
-//  TOAST NOTIFICATION
-// ════════════════════════════════════════════════
-function showToast(message, type = 'success') {
+function showToast(message, type) {
+  type = type || 'success';
   const existing = document.getElementById('vd-toast');
   if (existing) existing.remove();
 
   const toast = document.createElement('div');
   toast.id = 'vd-toast';
-  toast.innerHTML = `<span style="font-size:1.1rem">${type === 'success' ? '✅' : '❌'}</span><span>${message}</span>`;
+
+  const iconSpan = document.createElement('span');
+  iconSpan.style.fontSize = '1.1rem';
+  iconSpan.textContent = type === 'success' ? '\u2705' : '\u274C';
+
+  const msgSpan = document.createElement('span');
+  msgSpan.textContent = message;
+
+  toast.append(iconSpan, msgSpan);
   Object.assign(toast.style, {
     position: 'fixed', bottom: '2rem', right: '2rem', zIndex: '9999',
     display: 'flex', alignItems: 'center', gap: '0.6rem',
@@ -42,9 +42,6 @@ function showToast(message, type = 'success') {
   }, 4500);
 }
 
-// ════════════════════════════════════════════════
-//  CONTACT FORM → WHATSAPP
-// ════════════════════════════════════════════════
 function initContactForm() {
   const btn = document.getElementById('contact-submit-btn');
   if (!btn) return;
@@ -92,15 +89,12 @@ function initContactForm() {
   });
 }
 
-// ════════════════════════════════════════════════
-//  WHATSAPP FLOATING BUTTON
-// ════════════════════════════════════════════════
 function injectWhatsApp() {
-  const MESSAGE = encodeURIComponent('Hi! I visited vediyukti.works and would like to know more 🙌');
+  const MESSAGE = encodeURIComponent('Hi! I visited vediyukti.works and would like to know more \uD83D\uDC4D');
   const btn     = document.createElement('a');
   btn.href      = `https://wa.me/${WHATSAPP_NUMBER}?text=${MESSAGE}`;
   btn.target    = '_blank'; btn.rel = 'noopener'; btn.title = 'Chat on WhatsApp';
-  btn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.113.549 4.099 1.508 5.829L0 24l6.336-1.486A11.934 11.934 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.006-1.37l-.36-.214-3.726.873.908-3.634-.234-.374A9.818 9.818 0 1112 21.818z"/></svg>`;
+  btn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.113.549 4.099 1.508 5.829L0 24l6.336-1.486A11.934 11.934 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.006-1.37l-.36-.214-3.726.873.908-3.634-.234-.374A9.818 9.818 0 1112 21.818z"/></svg>';
   Object.assign(btn.style, {
     position: 'fixed', bottom: '1.5rem', left: '1.5rem', zIndex: '9998',
     width: '3.5rem', height: '3.5rem', borderRadius: '50%',
@@ -114,9 +108,14 @@ function injectWhatsApp() {
   document.body.appendChild(btn);
 }
 
-// ════════════════════════════════════════════════
-//  INSTAGRAM FEED
-// ════════════════════════════════════════════════
+function isValidHttpsUrl(str) {
+  if (!str || typeof str !== 'string') return false;
+  try {
+    const url = new URL(str, window.location.origin);
+    return url.protocol === 'https:';
+  } catch { return false; }
+}
+
 async function loadInstagramFeed() {
   const container = document.getElementById('ig-feed-grid');
   if (!container) return;
@@ -129,31 +128,68 @@ async function loadInstagramFeed() {
 
     if (!data.success || !data.posts.length) {
       if (isHomePage) {
-        container.innerHTML = '<p style="color:#6E6B8A;text-align:center;grid-column:1/-1;padding:2rem">Follow us <a href="https://www.instagram.com/vediyukti.works/" target="_blank" rel="noopener noreferrer" style="color:#9D44C0">@vediyukti.works</a> on Instagram!</p>';
+        const p = document.createElement('p');
+        p.style.cssText = 'color:#6E6B8A;text-align:center;grid-column:1/-1;padding:2rem';
+        p.appendChild(document.createTextNode('Follow us '));
+        const a = document.createElement('a');
+        a.href = 'https://www.instagram.com/vediyukti.works/';
+        a.target = '_blank';
+        a.rel = 'noopener noreferrer';
+        a.style.color = '#9D44C0';
+        a.textContent = '@vediyukti.works';
+        p.appendChild(a);
+        p.appendChild(document.createTextNode(' on Instagram!'));
+        container.textContent = '';
+        container.appendChild(p);
       }
       return;
     }
 
-    container.innerHTML = data.posts.slice(0, isHomePage ? 9 : 6).map(post => {
-      const img     = post.media_type === 'VIDEO' ? (post.thumbnail_url || '') : post.media_url;
-      const caption = (post.caption || '').slice(0, 80) + (post.caption?.length > 80 ? '…' : '');
-      return `
-        <a href="${post.permalink}" target="_blank" rel="noopener" class="ig-post">
-          <img src="${img}" alt="${caption}" loading="lazy" />
-          <div class="ig-overlay">
-            ${post.media_type === 'VIDEO' ? '<span class="ig-type">▶</span>' : ''}
-            ${post.media_type === 'CAROUSEL_ALBUM' ? '<span class="ig-type">⊞</span>' : ''}
-          </div>
-        </a>`;
-    }).join('');
+    const fragment = document.createDocumentFragment();
+    const posts = data.posts.slice(0, isHomePage ? 9 : 6);
+
+    for (const post of posts) {
+      const imgUrl   = post.media_type === 'VIDEO' ? (post.thumbnail_url || '') : post.media_url;
+      const caption  = (post.caption || '').slice(0, 80) + (post.caption?.length > 80 ? '\u2026' : '');
+
+      if (!isValidHttpsUrl(post.permalink) || !isValidHttpsUrl(imgUrl)) continue;
+
+      const a = document.createElement('a');
+      a.href = post.permalink;
+      a.target = '_blank';
+      a.rel = 'noopener';
+      a.className = 'ig-post';
+
+      const img = document.createElement('img');
+      img.src = imgUrl;
+      img.alt = caption;
+      img.loading = 'lazy';
+      a.appendChild(img);
+
+      const overlay = document.createElement('div');
+      overlay.className = 'ig-overlay';
+      if (post.media_type === 'VIDEO') {
+        const span = document.createElement('span');
+        span.className = 'ig-type';
+        span.textContent = '\u25B6';
+        overlay.appendChild(span);
+      } else if (post.media_type === 'CAROUSEL_ALBUM') {
+        const span = document.createElement('span');
+        span.className = 'ig-type';
+        span.textContent = '\u229E';
+        overlay.appendChild(span);
+      }
+      a.appendChild(overlay);
+      fragment.appendChild(a);
+    }
+
+    container.textContent = '';
+    container.appendChild(fragment);
   } catch (err) {
     console.error('Instagram feed error:', err);
   }
 }
 
-// ════════════════════════════════════════════════
-//  SCROLL REVEAL
-// ════════════════════════════════════════════════
 function initReveal() {
   const els = document.querySelectorAll('.reveal');
   if (!els.length) return;
@@ -170,12 +206,48 @@ function initReveal() {
   els.forEach(el => observer.observe(el));
 }
 
-// ════════════════════════════════════════════════
-//  INIT
-// ════════════════════════════════════════════════
+function initMobileNav() {
+  document.querySelectorAll('.hamburger').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelector('.mobile-menu')?.classList.toggle('open');
+    });
+  });
+  document.querySelectorAll('.mobile-menu a').forEach(a => {
+    a.addEventListener('click', () => {
+      a.closest('.mobile-menu')?.classList.remove('open');
+    });
+  });
+}
+
+function initFAQ() {
+  document.querySelectorAll('.faq-q').forEach(btn => {
+    btn.addEventListener('click', () => {
+      btn.parentElement.classList.toggle('open');
+    });
+  });
+}
+
+function initPortfolioFilter() {
+  const filterBtns = document.querySelectorAll('.port-filter button');
+  if (!filterBtns.length) return;
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelector('.port-filter .active')?.classList.remove('active');
+      btn.classList.add('active');
+      const filter = btn.dataset.filter;
+      document.querySelectorAll('.work-card').forEach(card => {
+        card.style.display = filter === 'all' || card.dataset.category === filter ? '' : 'none';
+      });
+    });
+  });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   initContactForm();
   loadInstagramFeed();
   initReveal();
   injectWhatsApp();
+  initMobileNav();
+  initFAQ();
+  initPortfolioFilter();
 });

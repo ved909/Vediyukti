@@ -10,7 +10,23 @@ const portfolioRoutes = require('../modules/portfolio/portfolio.routes');
 function createApp() {
   const app = express();
 
-  app.use(helmet({ contentSecurityPolicy: false }));
+  app.use(helmet({
+    contentSecurityPolicy: {
+      directives: {
+        defaultSrc    : ["'self'"],
+        scriptSrc     : ["'self'"],
+        styleSrc      : ["'self'", "'unsafe-inline'", 'https://fonts.googleapis.com'],
+        fontSrc       : ["'self'", 'https://fonts.gstatic.com'],
+        imgSrc        : ["'self'", 'data:', 'https://*.cdninstagram.com', 'https://*.fbcdn.net'],
+        connectSrc    : ["'self'", 'https://vediyukti-backend.onrender.com'],
+        frameSrc      : ["'none'"],
+        objectSrc     : ["'none'"],
+        baseUri       : ["'self'"],
+        formAction    : ["'none'"],
+        frameAncestors: ["'none'"],
+      },
+    },
+  }));
   app.use(express.json({ limit: '10kb' }));
 
   const allowedOrigins = [
