@@ -23,16 +23,19 @@ function showToast(message, type) {
   Object.assign(toast.style, {
     position: 'fixed', bottom: '2rem', right: '2rem', zIndex: '9999',
     display: 'flex', alignItems: 'center', gap: '0.6rem',
-    padding: '1rem 1.5rem', borderRadius: '12px',
+    padding: '1rem 1.5rem', borderRadius: '16px',
     background: type === 'success'
       ? 'linear-gradient(135deg,#4D2DB7,#9D44C0)'
       : 'linear-gradient(135deg,#c0392b,#e74c3c)',
-    color: '#fff', fontFamily: "'Plus Jakarta Sans', sans-serif",
+    color: '#fff', fontFamily: "'Manrope', sans-serif",
     fontWeight: '600', fontSize: '0.9rem',
-    boxShadow: '0 8px 32px rgba(0,0,0,0.25)',
+    boxShadow: '0 8px 32px rgba(0,0,0,0.4), 0 0 40px rgba(77,45,183,0.1)',
     transform: 'translateY(100px)',
     transition: 'transform 0.4s cubic-bezier(0.16,1,0.3,1)',
     maxWidth: '360px',
+    backdropFilter: 'blur(20px)',
+    WebkitBackdropFilter: 'blur(20px)',
+    border: '1px solid rgba(255,255,255,0.08)',
   });
   document.body.appendChild(toast);
   requestAnimationFrame(() => requestAnimationFrame(() => { toast.style.transform = 'translateY(0)'; }));
@@ -98,13 +101,17 @@ function injectWhatsApp() {
   Object.assign(btn.style, {
     position: 'fixed', bottom: '1.5rem', left: '1.5rem', zIndex: '9998',
     width: '3.5rem', height: '3.5rem', borderRadius: '50%',
-    background: '#25D366', display: 'flex',
+    background: 'rgba(37,211,102,0.15)',
+    backdropFilter: 'blur(12px)',
+    WebkitBackdropFilter: 'blur(12px)',
+    border: '1px solid rgba(37,211,102,0.2)',
+    display: 'flex',
     alignItems: 'center', justifyContent: 'center',
-    boxShadow: '0 4px 20px rgba(37,211,102,0.45)',
-    transition: 'transform 0.2s, box-shadow 0.2s', cursor: 'pointer',
+    boxShadow: '0 4px 20px rgba(37,211,102,0.3), inset 0 1px 0 rgba(255,255,255,0.08)',
+    transition: 'transform 0.3s, box-shadow 0.3s', cursor: 'pointer',
   });
-  btn.addEventListener('mouseenter', () => { btn.style.transform='scale(1.12)'; btn.style.boxShadow='0 8px 30px rgba(37,211,102,0.6)'; });
-  btn.addEventListener('mouseleave', () => { btn.style.transform='scale(1)'; btn.style.boxShadow='0 4px 20px rgba(37,211,102,0.45)'; });
+  btn.addEventListener('mouseenter', () => { btn.style.transform='scale(1.12)'; btn.style.boxShadow='0 8px 30px rgba(37,211,102,0.5), inset 0 1px 0 rgba(255,255,255,0.1)'; });
+  btn.addEventListener('mouseleave', () => { btn.style.transform='scale(1)'; btn.style.boxShadow='0 4px 20px rgba(37,211,102,0.3), inset 0 1px 0 rgba(255,255,255,0.08)'; });
   document.body.appendChild(btn);
 }
 
@@ -129,7 +136,7 @@ async function loadInstagramFeed() {
     if (!data.success || !data.posts.length) {
       if (isHomePage) {
         const p = document.createElement('p');
-        p.style.cssText = 'color:#6E6B8A;text-align:center;grid-column:1/-1;padding:2rem';
+        p.style.cssText = 'color:#8989A0;text-align:center;grid-column:1/-1;padding:2rem';
         p.appendChild(document.createTextNode('Follow us '));
         const a = document.createElement('a');
         a.href = 'https://www.instagram.com/vediyukti.works/';
@@ -242,7 +249,23 @@ function initPortfolioFilter() {
   });
 }
 
+function injectNoise() {
+  const div = document.createElement('div');
+  div.className = 'noise';
+  document.body.prepend(div);
+}
+
+function initNavScroll() {
+  const nav = document.querySelector('.nav');
+  if (!nav) return;
+  const check = () => nav.classList.toggle('scrolled', window.scrollY > 50);
+  window.addEventListener('scroll', check, { passive: true });
+  check();
+}
+
 document.addEventListener('DOMContentLoaded', () => {
+  injectNoise();
+  initNavScroll();
   initContactForm();
   loadInstagramFeed();
   initReveal();
