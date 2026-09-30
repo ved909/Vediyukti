@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Allow: /services.html
+Allow: /about.html
+Allow: /contact.html
+Disallow: /api/

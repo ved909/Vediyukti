@@ -15,10 +15,10 @@ function createApp() {
       directives: {
         defaultSrc    : ["'self'"],
         scriptSrc     : ["'self'"],
-        styleSrc      : ["'self'", "'unsafe-inline'", 'https://fonts.googleapis.com'],
-        fontSrc       : ["'self'", 'https://fonts.gstatic.com'],
+        styleSrc      : ["'self'", "'unsafe-inline'", 'https://fonts.googleapis.com', 'https://api.fontshare.com'],
+        fontSrc       : ["'self'", 'https://fonts.gstatic.com', 'https://api.fontshare.com', 'https://cdn.fontshare.com'],
         imgSrc        : ["'self'", 'data:', 'https://*.cdninstagram.com', 'https://*.fbcdn.net'],
-        connectSrc    : ["'self'", 'https://vediyukti-backend.onrender.com'],
+        connectSrc    : ["'self'"],
         frameSrc      : ["'none'"],
         objectSrc     : ["'none'"],
         baseUri       : ["'self'"],
@@ -32,11 +32,14 @@ function createApp() {
   const allowedOrigins = [
     'https://vediyukti.works',
     'https://www.vediyukti.works',
+    'https://vediyukti.onrender.com',
+    'http://localhost:5000',
     'http://localhost:3000',
     'http://127.0.0.1:5500',
+    'http://localhost:5500',
   ];
 
-  app.use(cors({
+  app.use('/api/', cors({
     origin: (origin, cb) => {
       if (!origin || allowedOrigins.includes(origin)) return cb(null, true);
       cb(new Error('Not allowed by CORS'));
