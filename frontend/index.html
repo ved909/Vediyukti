@@ -1,258 +1,188 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<meta name="description" content="Vediyukti — Digital Growth Agency. We build brands that grow, scale, and win through social media marketing, web design, SEO, and paid ads."/>
-<title>Vediyukti — Digital Growth & IT support</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link rel="preconnect" href="https://api.fontshare.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
-<link href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="assets/css/main.css"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vediyukti — Digital growth &amp; IT support</title>
+<meta name="description" content="Vediyukti builds brands that grow: social media marketing, web design, SEO and paid ads.">
+<meta name="theme-color" content="#05070e">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="assets/js/boot.js"></script>
+<link rel="stylesheet" href="assets/css/main.css">
+<script src="assets/js/main.js" defer></script>
 </head>
 <body>
+<div class="progress" aria-hidden="true"></div>
 
-<!-- NAV -->
-<nav class="nav">
+<header class="nav">
   <div class="wrap nav-inner">
-    <a href="/" class="logo"><span class="grad">vediyukti</span><span class="dot">.works</span></a>
-    <ul class="nav-links">
-      <li><a href="/" class="active">Home</a></li>
-      <li><a href="services.html">Services</a></li>
-      
-      <li><a href="about.html">About</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-    <a href="contact.html" class="nav-cta">Start a Project ↗</a>
-    <button class="hamburger" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
+    <a href="/" class="logo" aria-label="Vediyukti home">vediyukti<span>.works</span></a>
+    <nav aria-label="Main"><ul class="nav-links"><li><a href="/" class=active>Home</a></li><li><a href="services.html">Services</a></li><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li></ul></nav>
+    <button class="menu-btn" aria-expanded="false" aria-controls="mobile-menu">Menu</button>
   </div>
-  <div class="mobile-menu">
-    <ul>
-      <li><a href="/" >Home</a></li>
-      <li><a href="services.html" >Services</a></li>
-      
-      <li><a href="about.html" >About</a></li>
-      <li><a href="contact.html" >Contact</a></li>
-    </ul>
-    <a href="contact.html" class="btn-primary" style="width:100%;justify-content:center;margin-top:.5rem">Get Started ↗</a>
-  </div>
-</nav>
-
-<!-- HERO -->
-<section class="hero" id="home">
-  <div class="wrap">
-    <div class="hero-inner">
-      <div class="hero-copy">
-        <div class="hero-tag"><span class="dot"></span> Digital Growth Agency</div>
-        <h1>Brands that<br><span class="g-text">Grow.<br>Scale.<br>Win.</span></h1>
-        <p class="hero-sub">We build your digital presence from the ground up — sharp strategy, bold design, and marketing that moves the needle.</p>
-        <div class="hero-btns">
-          <a href="contact.html" class="btn-primary"><span class="btn-icon">🚀</span> Start a Project</a>
-          <a href="#instagram" class="btn-ghost"><span class="btn-icon">👁</span> See Our Work</a>
-        </div>
-        <dl class="hero-stats">
-          <div class="stat-item"><dt>Brands Scaled</dt><dd>10+</dd></div>
-          <div class="stat-item"><dt>Avg. Growth</dt><dd>3.2×</dd></div>
-          <div class="stat-item"><dt>Founded</dt><dd>2026</dd></div>
-        </dl>
-      </div>
-      <div class="hero-visual">
-        <div class="h-card tilt-el">
-          <div class="h-card-top"><span class="h-label">Monthly Reach</span><span class="h-badge">↑ 38% this month</span></div>
-          <div class="h-big">90k</div>
-          <div class="h-sub">Impressions across all channels</div>
-          <div class="grad-bar"><div class="gb gb1"></div><div class="gb gb2"></div><div class="gb gb3"></div><div class="gb gb4"></div></div>
-        </div>
-        <div class="h-row">
-          <div class="mini-hcard"><div class="mini-icon ic-a">🎯</div><strong>94%</strong><span>Client retention</span></div>
-          <div class="mini-hcard"><div class="mini-icon ic-b">🚀</div><strong>12d</strong><span>Avg. go-live time</span></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- MARQUEE -->
-<div class="marquee-wrap">
-  <div class="marquee-inner">
-    <span class="m-chip">📣 Social Media Marketing</span><span class="m-chip">🌐 Web Design</span><span class="m-chip">🔍 SEO & Growth</span><span class="m-chip">🎨 Graphic Design</span><span class="m-chip">⚡ Meta Ads</span><span class="m-chip">✦ Brand Identity</span><span class="m-chip">📹 Content Creation</span><span class="m-chip">💡 Google Ads</span><span class="m-chip">✂️ Video Editing</span><span class="m-chip">📧 Email Marketing</span>
-    <span class="m-chip">📣 Social Media Marketing</span><span class="m-chip">🌐 Web Design</span><span class="m-chip">🔍 SEO & Growth</span><span class="m-chip">🎨 Graphic Design</span><span class="m-chip">⚡ Meta Ads</span><span class="m-chip">✦ Brand Identity</span><span class="m-chip">📹 Content Creation</span><span class="m-chip">💡 Google Ads</span><span class="m-chip">✂️ Video Editing</span><span class="m-chip">📧 Email Marketing</span>
-  </div>
+</header>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="/" class=active>Home</a><a href="services.html">Services</a><a href="about.html">About</a><a href="contact.html">Contact</a>
+  <p class="mm-foot">vediyukti.works@gmail.com</p>
 </div>
 
-<!-- SERVICES -->
-<section class="section services-section" id="services">
-  <div class="wrap">
-    <p class="eyebrow reveal">Our Services</p>
-    <h2 class="section-h reveal d1">Everything your brand needs<br>to <span class="g-text">dominate online</span></h2>
-    <p class="section-p reveal d2">From strategy to execution — we handle the full spectrum of digital growth.</p>
-    <div class="services-grid">
-      <div class="svc-card featured-svc c1 reveal tilt-el"><div class="svc-icon si1">📣</div><h3>Social Media Marketing</h3><p>Content strategies, community management, and paid campaigns across Instagram, Facebook, and more. We build audiences that convert — not just follow.</p><a href="services.html" class="svc-link">Learn more →</a></div>
-      <div class="svc-card c2 reveal d1 tilt-el"><div class="svc-icon si2">🌐</div><h3>Web Design & Dev</h3><p>Fast, beautiful, conversion-focused websites built to represent your brand and turn visitors into customers.</p><a href="services.html" class="svc-link">Learn more →</a></div>
-      <div class="svc-card c3 reveal tilt-el"><div class="svc-icon si3">🎨</div><h3>Graphic Design</h3><p>Brand identity, social creatives, and assets that make people stop scrolling and start noticing.</p><a href="services.html" class="svc-link">Learn more →</a></div>
-      <div class="svc-card c4 reveal d1 tilt-el"><div class="svc-icon si4">📈</div><h3>SEO & Growth</h3><p>Organic growth strategy, keyword research, and optimization to rank higher and stay there.</p><a href="services.html" class="svc-link">Learn more →</a></div>
-      <div class="svc-card c5 reveal d2 tilt-el"><div class="svc-icon si5">⚡</div><h3>Paid Ads (Meta & Google)</h3><p>Data-driven ad campaigns that maximize ROI — we manage the full funnel from creative to conversion.</p><a href="services.html" class="svc-link">Learn more →</a></div>
+<main>
+
+<section class="hero" id="home">
+  <div class="wrap hero-inner">
+    <p class="label rv">Digital growth &middot; Design &middot; IT support</p>
+    <h1 data-split>Brands that <em>grow</em>, scale and win.</h1>
+    <div class="hero-foot">
+      <p class="lede rv" style="--d:.5s">We build your digital presence from the ground up: strategy, design and marketing that move the numbers that matter.</p>
+      <div class="hero-links rv" style="--d:.65s">
+        <a class="pill" href="contact.html">Start a project <span aria-hidden="true">&#8599;</span></a>
+        <a class="link-arrow" href="services.html">Services <span aria-hidden="true">&rarr;</span></a>
+      </div>
     </div>
   </div>
+  <div class="scroll-hint" aria-hidden="true">Scroll <i></i></div>
 </section>
 
-<!-- WHY CHOOSE US -->
-<section class="section why-section" id="why">
+<section class="section" id="services">
   <div class="wrap">
-    <p class="eyebrow reveal">Why Choose Us</p>
-    <h2 class="section-h reveal d1">Built for <span class="g-text">results.</span> Driven by <span class="g-text">data.</span></h2>
-    <p class="section-p reveal d2">We don't just post and pray. Every campaign is engineered for measurable outcomes.</p>
-    <div class="why-grid">
-      <div class="why-card reveal tilt-el"><div class="why-icon wi1">📊</div><h3>Data-First Approach</h3><p>Every decision is backed by real metrics. We track what works, double down on winners, and cut what doesn't.</p></div>
-      <div class="why-card reveal d1 tilt-el"><div class="why-icon wi2">⚡</div><h3>Lightning Fast Execution</h3><p>From strategy to launch in days, not months. We move at the speed of culture — because by the time you're ready, the trend is over.</p></div>
-      <div class="why-card reveal d2 tilt-el"><div class="why-icon wi3">🎯</div><h3>ROI-First Mentality</h3><p>We optimize for outcomes that matter — leads, sales, and conversions. Not vanity metrics that look good on a report.</p></div>
-      <div class="why-card reveal tilt-el"><div class="why-icon wi4">🤝</div><h3>True Partnership</h3><p>We embed ourselves in your brand. Weekly updates, transparent reporting, and a team that treats your growth as our own.</p></div>
-      <div class="why-card reveal d1 tilt-el"><div class="why-icon wi5">🎨</div><h3>Creative That Cuts Through</h3><p>Scroll-stopping visuals and copy that resonate. We understand culture, not just algorithms — and it shows in the work.</p></div>
-      <div class="why-card reveal d2 tilt-el"><div class="why-icon wi6">📈</div><h3>Full-Funnel Expertise</h3><p>From top-of-funnel awareness to bottom-of-funnel conversion — we manage every touchpoint of the customer journey.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- INSTAGRAM FEED -->
-<section class="section ig-section" id="instagram">
-  <div class="wrap">
-    <p class="eyebrow reveal">Instagram</p>
-    <h2 class="section-h reveal d1">Follow our <span class="g-text">creative journey</span></h2>
-    <p class="section-p reveal d2">Real work. Real results. Follow us for daily inspiration, tips, and behind-the-scenes.</p>
-    <div id="ig-feed-grid" class="ig-feed-grid reveal d2">
-      <div style="grid-column:1/-1;text-align:center;padding:3rem;color:var(--muted)">Loading Instagram feed…</div>
-    </div>
-    <div style="text-align:center;margin-top:2rem">
-      <a href="https://www.instagram.com/vediyukti.works/" target="_blank" rel="noopener noreferrer" class="ig-follow">
-        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="#fff"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-        Follow @vediyukti
+    <div class="split">
+      <p class="label label-col rv"><b>01</b> &mdash; What we do</p>
+      <div>
+        <div class="section-head">
+          <h2 class="display" data-split>Everything your brand needs to show up online.</h2>
+        </div>
+        <div class="rows">
+      <a class="row" href="services.html#social">
+        <span class="n">01</span>
+        <h3>Social Media Marketing</h3>
+        <p>Content strategy, community management and paid campaigns across Instagram, Facebook and more. Audiences that convert, not just follow.</p>
+        <span class="arrow" aria-hidden="true">&#8599;</span>
       </a>
+      <a class="row" href="services.html#web">
+        <span class="n">02</span>
+        <h3>Web Design &amp; Development</h3>
+        <p>Fast, clear websites built to represent your brand and turn visitors into customers.</p>
+        <span class="arrow" aria-hidden="true">&#8599;</span>
+      </a>
+      <a class="row" href="services.html#graphic">
+        <span class="n">03</span>
+        <h3>Graphic Design</h3>
+        <p>Brand identity, social creatives and assets that get noticed.</p>
+        <span class="arrow" aria-hidden="true">&#8599;</span>
+      </a>
+      <a class="row" href="services.html#seo">
+        <span class="n">04</span>
+        <h3>SEO &amp; Growth</h3>
+        <p>Keyword research and optimisation, so the right people find you and keep finding you.</p>
+        <span class="arrow" aria-hidden="true">&#8599;</span>
+      </a>
+      <a class="row" href="services.html#ads">
+        <span class="n">05</span>
+        <h3>Paid Ads (Meta &amp; Google)</h3>
+        <p>Campaigns managed from creative to conversion, with every rupee tracked.</p>
+        <span class="arrow" aria-hidden="true">&#8599;</span>
+      </a>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- CLIENTS -->
-<section class="clients-section">
+<section class="section" id="how">
   <div class="wrap">
-    <p class="eyebrow reveal">Our Clients</p>
-    <h2 class="section-h reveal d1">Brands that <span class="g-text">trust us</span></h2>
-  </div>
-  <div class="clients-marquee">
-    <div class="clients-track">
-      <div class="client-logo"><svg viewBox="0 0 120 30"><rect width="120" height="30" fill="none"/><text x="60" y="20" text-anchor="middle" fill="rgba(110,107,138,0.4)" font-size="10" font-family="sans-serif" font-weight="700">BRAND ONE</text></svg></div>
-      <div class="client-logo"><svg viewBox="0 0 120 30"><rect width="120" height="30" fill="none"/><text x="60" y="20" text-anchor="middle" fill="rgba(110,107,138,0.4)" font-size="10" font-family="sans-serif" font-weight="700">BRAND TWO</text></svg></div>
-      <div class="client-logo"><svg viewBox="0 0 120 30"><rect width="120" height="30" fill="none"/><text x="60" y="20" text-anchor="middle" fill="rgba(110,107,138,0.4)" font-size="10" font-family="sans-serif" font-weight="700">BRAND THREE</text></svg></div>
-      <div class="client-logo"><svg viewBox="0 0 120 30"><rect width="120" height="30" fill="none"/><text x="60" y="20" text-anchor="middle" fill="rgba(110,107,138,0.4)" font-size="10" font-family="sans-serif" font-weight="700">BRAND FOUR</text></svg></div>
-      <div class="client-logo"><svg viewBox="0 0 120 30"><rect width="120" height="30" fill="none"/><text x="60" y="20" text-anchor="middle" fill="rgba(110,107,138,0.4)" font-size="10" font-family="sans-serif" font-weight="700">BRAND FIVE</text></svg></div>
-      <div class="client-logo"><svg viewBox="0 0 120 30"><rect width="120" height="30" fill="none"/><text x="60" y="20" text-anchor="middle" fill="rgba(110,107,138,0.4)" font-size="10" font-family="sans-serif" font-weight="700">BRAND SIX</text></svg></div>
-      <div class="client-logo"><svg viewBox="0 0 120 30"><rect width="120" height="30" fill="none"/><text x="60" y="20" text-anchor="middle" fill="rgba(110,107,138,0.4)" font-size="10" font-family="sans-serif" font-weight="700">BRAND SEVEN</text></svg></div>
-      <div class="client-logo"><svg viewBox="0 0 120 30"><rect width="120" height="30" fill="none"/><text x="60" y="20" text-anchor="middle" fill="rgba(110,107,138,0.4)" font-size="10" font-family="sans-serif" font-weight="700">BRAND EIGHT</text></svg></div>
-      <div class="client-logo"><svg viewBox="0 0 120 30"><rect width="120" height="30" fill="none"/><text x="60" y="20" text-anchor="middle" fill="rgba(110,107,138,0.4)" font-size="10" font-family="sans-serif" font-weight="700">BRAND ONE</text></svg></div>
-      <div class="client-logo"><svg viewBox="0 0 120 30"><rect width="120" height="30" fill="none"/><text x="60" y="20" text-anchor="middle" fill="rgba(110,107,138,0.4)" font-size="10" font-family="sans-serif" font-weight="700">BRAND TWO</text></svg></div>
-      <div class="client-logo"><svg viewBox="0 0 120 30"><rect width="120" height="30" fill="none"/><text x="60" y="20" text-anchor="middle" fill="rgba(110,107,138,0.4)" font-size="10" font-family="sans-serif" font-weight="700">BRAND THREE</text></svg></div>
-      <div class="client-logo"><svg viewBox="0 0 120 30"><rect width="120" height="30" fill="none"/><text x="60" y="20" text-anchor="middle" fill="rgba(110,107,138,0.4)" font-size="10" font-family="sans-serif" font-weight="700">BRAND FOUR</text></svg></div>
-      <div class="client-logo"><svg viewBox="0 0 120 30"><rect width="120" height="30" fill="none"/><text x="60" y="20" text-anchor="middle" fill="rgba(110,107,138,0.4)" font-size="10" font-family="sans-serif" font-weight="700">BRAND FIVE</text></svg></div>
-      <div class="client-logo"><svg viewBox="0 0 120 30"><rect width="120" height="30" fill="none"/><text x="60" y="20" text-anchor="middle" fill="rgba(110,107,138,0.4)" font-size="10" font-family="sans-serif" font-weight="700">BRAND SIX</text></svg></div>
-      <div class="client-logo"><svg viewBox="0 0 120 30"><rect width="120" height="30" fill="none"/><text x="60" y="20" text-anchor="middle" fill="rgba(110,107,138,0.4)" font-size="10" font-family="sans-serif" font-weight="700">BRAND SEVEN</text></svg></div>
-      <div class="client-logo"><svg viewBox="0 0 120 30"><rect width="120" height="30" fill="none"/><text x="60" y="20" text-anchor="middle" fill="rgba(110,107,138,0.4)" font-size="10" font-family="sans-serif" font-weight="700">BRAND EIGHT</text></svg></div>
+    <div class="split">
+      <p class="label label-col rv"><b>02</b> &mdash; How we work</p>
+      <div>
+        <div class="section-head">
+          <h2 class="display" data-split>Measured, fast, and honest about what works.</h2>
+        </div>
+        <div class="princ">
+        <div class="rv" style="--d:0.1s">
+          <span class="n">01</span>
+          <h3>Start from the numbers</h3>
+          <p>Every decision is backed by real metrics. We keep what works and cut what doesn't.</p>
+        </div>
+        <div class="rv" style="--d:0.0s">
+          <span class="n">02</span>
+          <h3>Move quickly</h3>
+          <p>Short cycles from plan to launch, so you learn from real results instead of guesses.</p>
+        </div>
+        <div class="rv" style="--d:0.1s">
+          <span class="n">03</span>
+          <h3>Outcomes over vanity</h3>
+          <p>Leads, sales and conversions come first. Likes are welcome, but they are not the goal.</p>
+        </div>
+        <div class="rv" style="--d:0.0s">
+          <span class="n">04</span>
+          <h3>One partner</h3>
+          <p>Regular updates and plain-language reporting. You always know what we are doing and why.</p>
+        </div>
+        <div class="rv" style="--d:0.1s">
+          <span class="n">05</span>
+          <h3>Creative that stands out</h3>
+          <p>Visuals and copy made for people, not for algorithms.</p>
+        </div>
+        <div class="rv" style="--d:0.0s">
+          <span class="n">06</span>
+          <h3>The full funnel</h3>
+          <p>From first impression to final conversion, every touchpoint lines up.</p>
+        </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ABOUT -->
-<section class="section about-section" id="about">
+<section class="section" id="instagram">
   <div class="wrap">
-    <div class="about-grid">
-      <div class="about-left reveal">
-        <div class="about-big-card tilt-el">
-          <div class="number">50+</div>
-          <p>Brands powered and growing. We're just getting started.</p>
-          <div class="about-chips">
-            <span class="a-chip">🏆 ROI-First</span><span class="a-chip">⚡ Fast Launch</span><span class="a-chip">🎯 Data-Driven</span><span class="a-chip">💬 Always On</span>
-          </div>
-        </div>
-        <div class="float-stat"><strong>94%</strong><span>Client retention</span></div>
-      </div>
-      <div class="about-copy reveal d1">
-        <p class="eyebrow">About Us</p>
-        <h2>Built different.<br><span class="g-text">Wired for growth.</span></h2>
-        <p>Vediyukti is a digital growth agency built for brands that refuse to blend in. The name says it all — <em>vedi</em> (platform) + <em>yukti</em> (strategy). We craft the stage and the strategy, so your brand performs.</p>
-        <p>We're not a vendor. We're your growth partner — obsessed with outcomes, fast on execution, and honest about what works.</p>
-        <ul class="about-list">
-          <li>Trend-driven content that earns real engagement</li>
-          <li>Sharp Meta Ads & performance marketing focus</li>
-          <li>A team that understands culture, not just algorithms</li>
-          <li>Fast, flexible, and ROI-first delivery</li>
-        </ul>
-        <a href="about.html" class="btn-primary">Learn More About Us ↗</a>
+    <div class="split">
+      <p class="label label-col rv"><b>03</b> &mdash; Instagram</p>
+      <div>
+        <p class="statement rv">Follow the work as it happens.</p>
+        <p class="rv" style="--d:.1s;margin-top:1.8rem"><a class="big-link" href="https://www.instagram.com/vediyukti.works/" target="_blank" rel="noopener noreferrer">@vediyukti.works &#8599;</a></p>
+        <div id="ig-feed-grid" class="ig-feed-grid"></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CONTACT -->
-<section class="section contact-section" id="contact">
+<section class="section" id="about">
   <div class="wrap">
-    <div class="contact-shell reveal">
-      <div class="contact-left">
-        <div>
-          <p style="font-size:.72rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,0.65);margin-bottom:.75rem">Contact Us</p>
-          <h2>Ready to grow<br>your brand?</h2>
-          <p>Tell us about your business and we'll get back to you within 24 hours with a tailored plan.</p>
-        </div>
-        <div class="c-items">
-          <div class="c-item"><div class="c-ico">📧</div><div><div class="c-label">Email</div><div class="c-val">hello@vediyukti.works</div></div></div>
-          <div class="c-item"><div class="c-ico">💬</div><div><div class="c-label">WhatsApp</div><div class="c-val"><a href="https://wa.me/919839320691" target="_blank" rel="noopener" style="color:inherit">+91 98393 20691</a></div></div></div>
-          <div class="c-item"><div class="c-ico">📍</div><div><div class="c-label">Location</div><div class="c-val">India</div></div></div>
-        </div>
-      </div>
-      <div class="contact-right">
-        <div class="c-form">
-          <div class="f-row">
-            <div class="field"><label for="name">Your Name *</label><input id="name" type="text" placeholder="Rahul Verma"/></div>
-            <div class="field"><label for="phone">Phone Number *</label><input id="phone" type="tel" placeholder="+91 98765 43210"/></div>
-          </div>
-          <div class="field"><label for="email">Email *</label><input id="email" type="email" placeholder="you@example.com"/></div>
-          <div class="field">
-            <label for="service">Service Interested In *</label>
-            <select id="service">
-              <option value="">Choose a service…</option>
-              <option>Social Media Marketing</option>
-              <option>Web Design & Development</option>
-              <option>Graphic Design</option>
-              <option>SEO & Growth</option>
-              <option>Paid Ads (Meta / Google)</option>
-              <option>Full Digital Package</option>
-            </select>
-          </div>
-          <div class="field"><label for="msg">Tell us about your brand</label><textarea id="msg" placeholder="Brief description of your business and what you're looking to achieve…"></textarea></div>
-          <button id="contact-submit-btn" class="btn-primary" style="width:100%;justify-content:center" type="button">Send Message →</button>
-        </div>
+    <div class="split">
+      <p class="label label-col rv"><b>04</b> &mdash; About</p>
+      <div>
+        <p class="statement rv">Vediyukti is <em>vedi</em>, a platform, plus <em>yukti</em>, strategy.</p>
+        <p class="statement rv" style="--d:.1s">We build the stage and the strategy, so your brand can perform.</p>
+        <p class="rv" style="--d:.2s;margin-top:2.2rem"><a class="link-arrow" href="about.html">About us <span aria-hidden="true">&rarr;</span></a></p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
-<footer>
-  <div class="wrap footer-inner">
-    <div class="f-logo"><span class="g">vediyukti</span><span class="d">.works</span></div>
-    <ul class="f-links">
-      <li><a href="/">Home</a></li><li><a href="services.html">Services</a></li><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li>
+<section class="cta" id="contact">
+  <div class="wrap">
+    <h2 data-split>Have a project <em>in mind?</em></h2>
+    <div class="cta-links rv" style="--d:.4s">
+      <a class="pill" href="contact.html">Start a project <span aria-hidden="true">&#8599;</span></a>
+      <a class="big-link" href="mailto:vediyukti.works@gmail.com">vediyukti.works@gmail.com</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <p>&copy; 2026 Vediyukti</p>
+    <ul>
+      <li><a href="https://www.instagram.com/vediyukti.works/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+      <li><a href="https://wa.me/919839320691" target="_blank" rel="noopener">WhatsApp</a></li>
+      <li><a href="mailto:vediyukti.works@gmail.com">Email</a></li>
     </ul>
-    <div class="f-socials">
-      <a href="https://www.instagram.com/vediyukti.works/" target="_blank" rel="noopener noreferrer" class="soc" title="Instagram">IG</a>
-      <a href="#" class="soc" title="LinkedIn">in</a>
-      <a href="https://wa.me/919839320691" target="_blank" rel="noopener" class="soc" title="WhatsApp">W</a>
-    </div>
-    <p class="f-copy">© 2026 Vediyukti. All rights reserved.</p>
   </div>
 </footer>
-
-<script src="assets/js/main.js"></script>
 </body>
 </html>
