@@ -10,6 +10,11 @@ const portfolioRoutes = require('../modules/portfolio/portfolio.routes');
 function createApp() {
   const app = express();
 
+  // Render (and most hosts) put a proxy in front of the app. Without this, every visitor
+  // looks like the same IP and shares one rate-limit bucket.
+  app.set('trust proxy', 1);
+  app.disable('x-powered-by');
+
   app.use(helmet({
     contentSecurityPolicy: {
       directives: {
