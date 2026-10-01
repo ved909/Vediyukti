@@ -325,6 +325,117 @@ function initField() {
   requestAnimationFrame(loop);
 }
 
+/* ── Background music with on/off button ───────────────── */
+function initMusic() {
+  const SRC = 'assets/audio/ambient.mp3';
+  const KEY = 'vd-music';
+  const VOL = 0.3, FADE_MS = 900, XFADE = 3;      // volume, fade time, loop crossfade (s)
+
+  const read  = () => { try { return JSON.parse(localStorage.getItem(KEY)) || {}; } catch { return {}; } };
+  const write = o  => { try { localStorage.setItem(KEY, JSON.stringify(o)); } catch { /* private mode */ } };
+
+  const btn = document.createElement('button');
+  btn.type = 'button';
+  btn.className = 'music';
+  btn.setAttribute('aria-pressed', 'false');
+  btn.innerHTML = '<span class="bars" aria-hidden="true"><i></i><i></i><i></i></span><span class="music-txt">Music off</span>';
+  document.body.appendChild(btn);
+  const txt = btn.querySelector('.music-txt');
+
+  // Two players so the loop can crossfade instead of clicking at the seam
+  const mk = () => { const a = new Audio(SRC); a.preload = 'auto'; a.volume = 0; return a; };
+  let cur = mk(), next = null;
+  let wantOn = false, fadeTimer = null, saved = read();
+
+  const setUI = on => {
+    btn.classList.toggle('on', on);
+    btn.setAttribute('aria-pressed', String(on));
+    btn.setAttribute('aria-label', on ? 'Turn background music off' : 'Turn background music on');
+    txt.textContent = on ? 'Music on' : 'Music off';
+  };
+  setUI(false);
+
+  function fade(a, to, ms, done) {
+    const from = a.volume, t0 = performance.now();
+    const step = now => {
+      const k = Math.min((now - t0) / ms, 1);
+      a.volume = Math.max(0, Math.min(1, from + (to - from) * k));
+      if (k < 1) requestAnimationFrame(step); else if (done) done();
+    };
+    requestAnimationFrame(step);
+  }
+
+  function watchLoop() {
+    clearInterval(fadeTimer);
+    fadeTimer = setInterval(() => {
+      if (!wantOn || !cur.duration || next) return;
+      if (cur.duration - cur.currentTime <= XFADE) {
+        const old = cur;
+        next = mk();
+        next.currentTime = 0;
+        next.play().then(() => {
+          fade(next, VOL, XFADE * 1000);
+          fade(old, 0, XFADE * 1000, () => { old.pause(); });
+          cur = next; next = null;
+        }).catch(() => { next = null; });
+      }
+    }, 250);
+  }
+
+  async function turnOn() {
+    wantOn = true;
+    try {
+      if (saved.t && cur.currentTime === 0 && saved.t < (cur.duration || 9999) - XFADE - 1) cur.currentTime = saved.t;
+      await cur.play();
+      fade(cur, VOL, FADE_MS);
+      setUI(true);
+      watchLoop();
+      write({ on: true, t: cur.currentTime });
+      return true;
+    } catch (e) {            // browser blocked autoplay: wait for a tap
+      wantOn = false;
+      setUI(false);
+      return false;
+    }
+  }
+
+  function turnOff() {
+    wantOn = false;
+    clearInterval(fadeTimer);
+    setUI(false);
+    const a = cur;
+    fade(a, 0, 500, () => a.pause());
+    write({ on: false, t: a.currentTime });
+  }
+
+  btn.addEventListener('click', () => { wantOn ? turnOff() : turnOn(); });
+
+  // Pause when the tab is hidden, resume when it comes back
+  document.addEventListener('visibilitychange', () => {
+    if (!wantOn) return;
+    if (document.hidden) cur.pause(); else cur.play().catch(() => {});
+  });
+
+  // Remember position so music carries across pages
+  window.addEventListener('pagehide', () => { if (wantOn) write({ on: true, t: cur.currentTime }); });
+
+  // Visitor had music on in a previous page: try to continue; if the browser
+  // blocks it, continue on their first tap/key press instead.
+  if (saved.on) {
+    turnOn().then(ok => {
+      if (ok) return;
+      const resume = e => {
+        if (e.target.closest && e.target.closest('.music')) return;   // the button handles its own tap
+        window.removeEventListener('pointerdown', resume);
+        window.removeEventListener('keydown', resume);
+        if (!wantOn && read().on) turnOn();
+      };
+      window.addEventListener('pointerdown', resume);
+      window.addEventListener('keydown', resume);
+    });
+  }
+}
+
 /* ── Init ──────────────────────────────────────────────── */
 document.addEventListener('DOMContentLoaded', () => {
   initField();
@@ -333,5 +444,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initMobileNav();
   initContactForm();
   injectWhatsApp();
+  initMusic();
   loadInstagramFeed();
 });
